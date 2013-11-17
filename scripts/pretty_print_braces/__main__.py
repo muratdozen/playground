@@ -82,7 +82,7 @@ def extract_braces(source_code, filename, quiet):
             depths.append(1)
 
     for char in source_code:
-        if char === '{':
+        if char == '{':
             if not quiet:
                 braces.append((INDENT * current_depth) + '{')
             current_depth += 1
@@ -125,8 +125,7 @@ def walk_through_directory(rootpath, recursive, n, file_extensions, quiet):
         else:
             heapq.heappushpop(h, element)
 
-    file_extension_regex = '^.+\\.(' + '|'.join(file_extensions) + ')$'
-    file_extension_supported = lambda filename: bool(re.match(file_extension_regex, filename, re.I))
+    is_file_extension_supported = lambda filename: bool(os.path.splitext(filename)[1][1:] in file_extensions)
     join = os.path.join
     h = [] # heap to keep track of the greatest n items.
 
@@ -134,7 +133,7 @@ def walk_through_directory(rootpath, recursive, n, file_extensions, quiet):
         """ Process the files rooted immediately in dirpath,
         without going into dirpath's subdirectories. """
         for filename in filenames:
-            if not file_extension_supported(filename): continue
+            if not is_file_extension_supported(filename): continue
             absolute_file_path = join(dirpath, filename)
             result = analyze_file(absolute_file_path, quiet)
             heappush(h, result)
