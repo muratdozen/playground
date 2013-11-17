@@ -52,6 +52,8 @@ source file and prints the ugliest 5. Ugliness is defined by having the most dep
 
 Process the source files with extensions cpp, c or h in the directory at /root/repo/svn/trunk. Output the
 ugliest 3 source files in quiet mode. --nonrecursive indicates that subdirectories of trunk will not be traversed.
+
+It's important to note that braces inside comments or strings will be processed too.
 """
 
 import argparse
@@ -80,12 +82,12 @@ def extract_braces(source_code, filename, quiet):
             depths.append(1)
 
     for char in source_code:
-        if '{' == char:
+        if char === '{':
             if not quiet:
                 braces.append((INDENT * current_depth) + '{')
             current_depth += 1
             increment_depth_occurence(current_depth)
-        elif '}' == char:
+        elif char == '}':
             current_depth -= 1
             if not quiet:
                 braces.append((INDENT * current_depth) + '}')
