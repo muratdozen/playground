@@ -1,8 +1,8 @@
 {
   "Task": {
-    "task": { "string": ["Battery swap", "Collect vehicle", "Drop vehicle", "Drive"] },
-    "location": { "string": ["Angel", "Notting Hill", "Oxford Circus"] },
-    "estimated_effort": { "int": { "min": 0, "max": 10 } },
-    "agent": { "string": ["Murat", "Angelo"] }
+    "task": { "string": {} },
+    "location": { "string": {} },
+    "estimated_effort": { "int": {} },
+    "agent": { "string": {} }
   }
 }
