@@ -1,8 +1,8 @@
 {
   "Task": {
     "task": { "string": {} },
-    "location": { "regexp": "[Angel|Notting Hill|Oxford Circus]" } },
-    "estimated_effort": { { "int": { "min": 0, "max": 10 } } },
-    "agent": { "regexp": "[Murat|Angelo]" } }
+    "location": { "regexp": "[Angel|Notting Hill|Oxford Circus]" },
+    "estimated_effort": { "int": { "min": 0, "max": 10 } },
+    "agent": { "regexp": "[Murat|Angelo]" }
   }
 }
